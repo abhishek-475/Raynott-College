@@ -19,8 +19,7 @@ const contactRoutes = require('./routes/contactRoutes');
 const app =express()
 connectDB()
 
-
-app.use(cors())
+app.use(cors({ origin: process.env.FRONTEND_URL || '*' }));
 app.use(express.json())
 app.use('/uploads', express.static('uploads'));
 
